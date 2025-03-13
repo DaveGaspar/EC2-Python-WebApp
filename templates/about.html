@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    <h1>About Us</h1>
+    <p>This is the about page. Learn more about us here.</p>
+
+    <div class="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li><strong>C/C++</strong>
+                <ul>
+                    <li>OOP</li>
+                    <li>STL</li>
+                    <li>Multithreading</li>
+                </ul>
+            </li>
+            <li><strong>Java</strong></li>
+            <li><strong>Python</strong></li>
+            <li><strong>HTML/CSS</strong></li>
+            <li><strong>Qt</strong></li>
+        </ul>
+    </div>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>
