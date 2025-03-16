@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ city_name }} Data</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    
+    <h1>City: {{ city_name }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                {% for key, values in zipped_data %}
+                    <th>{{key}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, values in zipped_data %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    {% for value in values %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'partials/footer.html' %}
+</body>
+</html>
