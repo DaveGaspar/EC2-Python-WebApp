@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Davit Gasparyan | Software Engineer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -12,26 +18,229 @@
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('contact') }}">Contact</a>
     </nav>
-    <h1>About Us</h1>
-    <p>This is the about page. Learn more about us here.</p>
 
-    <div class="skills">
-        <h2>My Skills</h2>
-        <ul>
-            <li><strong>C/C++</strong>
-                <ul>
-                    <li>OOP</li>
-                    <li>STL</li>
-                    <li>Multithreading</li>
-                </ul>
-            </li>
-            <li><strong>Java</strong></li>
-            <li><strong>Python</strong></li>
-            <li><strong>HTML/CSS</strong></li>
-            <li><strong>Qt</strong></li>
-        </ul>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-picture">
+                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Davit Gasparyan">
+                </div>
+                <h1 class="name">Davit Gasparyan</h1>
+                <p class="title">Software Engineer</p>
+                
+                <div class="contact-info">
+                    <a href="tel:+37433911616" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+374 33 911616</span>
+                    </a>
+                    <a href="mailto:dgasparyan073@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>dgasparyan073@gmail.com</span>
+                    </a>
+                    <span class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yerevan, Armenia</span>
+                    </span>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/DaveGaspar" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gasparyan-david/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="{{ url_for('static', filename='docs/Davit_Gasparyan_CV.pdf') }}" class="social-link download-cv" download>
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <section id="summary">
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="section-content">
+                <p class="summary">
+                    Innovative and detail-oriented Software Engineer with expertise in backend development, cybersecurity, and AI. 
+                    Specializing in building scalable applications with Python, C++, and modern web technologies. 
+                    Passionate about solving complex problems through elegant technical solutions.
+                </p>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="experience-date">Feb 2025 - Present</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Full Stack Developer & IoT Specialist</h3>
+                        <span class="experience-company">ClimateNet (Internship)</span>
+                        <p class="experience-description">
+                            Developing an IoT-integrated climate monitoring system with Flask and Raspberry Pi, 
+                            deploying web applications on AWS infrastructure.
+                        </p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">AWS EC2</span>
+                            <span class="skill-tag">Nginx</span>
+                            <span class="skill-tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-date">Jan 2025 - Feb 2025</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Backend Engineer</h3>
+                        <span class="experience-company">TUMO Labs CyberTech Sprint</span>
+                        <p class="experience-description">
+                            Developed backend infrastructure for cybersecurity learning platform with AI-powered 
+                            functionalities including an assistant and image detection system.
+                        </p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">OpenAI</span>
+                            <span class="skill-tag">AI Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="education-date">2024 - 2028</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">Bachelor's in Information Technology</h3>
+                        <span class="education-school">National Polytechnic University of Armenia (NPUA)</span>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-date">2020 - 2024</div>
+                    <div class="education-content">
+                        <h3 class="education-degree">Associate's in Information Technology</h3>
+                        <span class="education-school">College of National Polytechnic University of Armenia (NPUA)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Languages</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">C/C++</li>
+                            <li class="skill-item">Python</li>
+                            <li class="skill-item">Java</li>
+                            <li class="skill-item">PHP</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Web</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">FastAPI</li>
+                            <li class="skill-item">Flask</li>
+                            <li class="skill-item">HTML/CSS</li>
+                            <li class="skill-item">Nginx</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Databases</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">MySQL</li>
+                            <li class="skill-item">PostgreSQL</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">AI/ML</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">OpenAI ChatGPT</li>
+                            <li class="skill-item">DeepSeek</li>
+                            <li class="skill-item">Sightengine</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">DevOps</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">AWS EC2</li>
+                            <li class="skill-item">Docker</li>
+                            <li class="skill-item">Gunicorn</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Tools</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item">Git</li>
+                            <li class="skill-item">Qt Framework</li>
+                            <li class="skill-item">Visual Studio</li>
+                            <li class="skill-item">Asana</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="interests">
+            <h2 class="section-title">Interests</h2>
+            <div class="section-content">
+                <div class="interests">
+                    <span class="interest-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Cybersecurity</span>
+                    </span>
+                    <span class="interest-item">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Development</span>
+                    </span>
+                    <span class="interest-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>IoT</span>
+                    </span>
+                    <span class="interest-item">
+                        <i class="fab fa-github"></i>
+                        <span>Open Source</span>
+                    </span>
+                    <span class="interest-item">
+                        <i class="fas fa-chess"></i>
+                        <span>Chess</span>
+                    </span>
+                    <span class="interest-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Fitness</span>
+                    </span>
+                </div>
+            </div>
+        </section>
     </div>
 
-    {% include 'partials/footer.html' %}
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Davit Gasparyan. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:dgasparyan073@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/DaveGaspar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gasparyan-david/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

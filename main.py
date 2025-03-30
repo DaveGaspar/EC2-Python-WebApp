@@ -8,27 +8,16 @@ def home():
     data = None
     if request.method == "POST":
         city = request.form.get("city")
-        match city:
-            case "Maralik":
-                city_id = 1
-            case "Panik":
-                city_id = 2
-            case "Azatan":
-                city_id = 3
-            case "Artik":
-                city_id = 4
-            case "Yerevan":
-                city_id = 8
-            case "Sevan":
-                city_id = 9
-            case "Gavar":
-                city_id = 6
+        city_id_dict = {"Maralik": 1, "Panik": 2, "Azatan": 3, "Artik": 4, "Yerevan": 8, "Sevan": 9, "Gavar": 6}
+        city_id = city_id_dict.get(city)
+        if not city_id:
+            return jsonify({"error": "City not found"}), 404
         response = requests.get(f"https://emvnh9buoh.execute-api.us-east-1.amazonaws.com/getData?device_id={city_id}")
         if response.status_code == 200:
             json_data = response.json()
 
             keys = json_data['keys']
-            first_data_element = json_data['data'][0]
+            first_data_element = json_data['data'][-1]
             data = {}
 
             for key, value in zip(keys, first_data_element):
@@ -42,22 +31,8 @@ def home():
 def get_city(city_name):
     city = city_name
     data = None
-    city_id = None
-    match city:
-        case "Maralik":
-            city_id = 1
-        case "Panik":
-            city_id = 2
-        case "Azatan":
-            city_id = 3
-        case "Artik":
-            city_id = 4
-        case "Yerevan":
-            city_id = 8
-        case "Sevan":
-            city_id = 9
-        case "Gavar":
-            city_id = 6
+    city_id_dict = {"Maralik": 1, "Panik": 2, "Azatan": 3, "Artik": 4, "Yerevan": 8, "Sevan": 9, "Gavar": 6}
+    city_id = city_id_dict.get(city)
     if not city_id:
         return jsonify({"error": "City not found"}), 404
     response = requests.get(f"https://emvnh9buoh.execute-api.us-east-1.amazonaws.com/getData?device_id={city_id}")

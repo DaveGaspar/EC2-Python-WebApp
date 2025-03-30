@@ -1,0 +1,440 @@
+:root {
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --primary-very-light: #e0e7ff;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --light-gray: #f1f5f9;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--dark);
+    padding: 0.6rem 2rem;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled {
+    background-color: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-light);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 2rem 0 1.5rem;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--primary);
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1.8rem 0 1.2rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--primary);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+/* Sections */
+.section {
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section-content {
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Contact Information */
+.contact-info {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 600px;
+    transition: var(--transition);
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.contact-info a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-info a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+/* Image Section */
+.image-section {
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.image-section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Forms */
+form {
+    margin: 2rem auto;
+    max-width: 500px;
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+form select, form input, form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+}
+
+form select:focus, form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+form button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+form button:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.elegant-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.elegant-table th, 
+.elegant-table td {
+    border: 1px solid var(--light-gray);
+    padding: 0.75rem 1rem;
+    text-align: center;
+}
+
+.elegant-table th {
+    background: var(--primary-very-light);
+    color: var(--dark);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary);
+}
+
+.elegant-table tr:hover {
+    background: rgba(224, 231, 255, 0.3);
+}
+
+/* Special styling for home.html */
+#data-table {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#data-table td:first-child {
+    font-weight: 500;
+    text-align: left;
+}
+
+#data-table .value {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Form Styles */
+.city-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.city-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-weight: 500;
+    text-align: center;
+}
+
+.city-form select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+.city-form button {
+    display: block;
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.city-form button:hover {
+    background: var(--primary-light);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-very-light);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--gray);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+        
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        padding: 0.5rem 1rem;
+        height: 45px;
+    }
+    
+    nav.scrolled {
+        background-color: rgba(30, 41, 59, 0.95);
+    }
+    
+    nav a {
+        margin: 0 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 1.25rem 0;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+    }
+}
+
+p {
+    text-align: center;
+}
+
+/* Secondary Button Styles */
+.secondary-button {
+    display: block;
+    width: 100%;
+    background: var(--light-gray);
+    color: var(--dark);
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.secondary-button:hover {
+    background: var(--primary-very-light);
+    border-color: var(--primary-light);
+}

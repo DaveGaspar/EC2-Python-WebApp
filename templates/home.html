@@ -4,7 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClimateNet</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <h1>ClimateNet Training</h1>
+        <p class="section-content">This is the home page of my website using flask, nginx, gunicorn, AWS ec2.</p>
+
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='images/home-image.png') }}" alt="Home Image">
+        </div>
+
+        <section class="section">
+            <h2>Select a City</h2>
+            <form action="/" method="post" class="city-form">
+                <label for="city">Choose a city:</label>
+                <select name="city" id="city">
+                    <option value="Yerevan">Yerevan</option>
+                    <option value="Maralik">Maralik</option>
+                    <option value="Panik">Panik</option>
+                    <option value="Azatan">Azatan</option>
+                    <option value="Artik">Artik</option>
+                    <option value="Gavar">Gavar</option>
+                    <option value="Sevan">Sevan</option>
+                </select>
+                <button type="submit">Get Data</button>
+                <button type="button" id="viewFullData" class="secondary-button">View Full Data</button>
+            </form>
+        </section>
+
+        <section class="section">
+            <h2>City Data</h2>
+            <div class="table-container">
+                <table id="data-table" class="elegant-table">
+                    <thead>
+                        <tr>
+                            <th>Measurement</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-key="timestamp">
+                            <td>Timestamp</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="uv">
+                            <td>UV Index</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="lux">
+                            <td>Light (lux)</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="temperature">
+                            <td>Temperature</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="pressure">
+                            <td>Pressure</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="humidity">
+                            <td>Humidity</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="pm1">
+                            <td>PM1</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="pm2_5">
+                            <td>PM2.5</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="pm10">
+                            <td>PM10</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="wind speed">
+                            <td>Wind Speed</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="rain">
+                            <td>Rain</td>
+                            <td class="value">None</td>
+                        </tr>
+                        <tr data-key="wind direction">
+                            <td>Wind Direction</td>
+                            <td class="value">None</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Davit Gasparyan. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:dgasparyan073@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/DaveGaspar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gasparyan-david/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("form");
@@ -18,7 +133,6 @@
                 .then(response => response.json())
                 .then(data => {
                     const table = document.querySelector("#data-table");
-                    // Update the values of the existing rows
                     for (const [key, value] of Object.entries(data)) {
                         const row = table.querySelector(`tr[data-key="${key}"]`);
                         if (row) {
@@ -30,91 +144,5 @@
             });
         });
     </script>
-</head>
-<body>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('contact') }}">Contact</a>
-    </nav>
-    <h1>ClimateNet Training</h1>
-    <p>This is the home page of my website using flask, nginx, gunicorn, AWS ec2.</p>
-
-    <div class="image-section">
-        <img src="{{ url_for('static', filename='home-image.png') }}" alt="Home Image">
-    </div>
-
-    <h1>Select a City</h1>
-    <form action="/" method="post">
-        <label for="city">Choose a city:</label>
-        <select name="city" id="city">
-            <option value="Yerevan">Yerevan</option>
-            <option value="Maralik">Maralik</option>
-            <option value="Panik">Panik</option>
-            <option value="Azatan">Azatan</option>
-            <option value="Artik">Artik</option>
-            <option value="Gavar">Gavar</option>
-            <option value="Sevan">Sevan</option>
-        </select>
-        <button type="submit">Submit</button>
-    </form>
-
-    <h2>City Data</h2>
-    <table id="data-table" border="1">
-        <tr>
-            <th>Key</th>
-            <th>Value</th>
-        </tr>
-        <tr data-key="timestamp">
-            <td>timestamp</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="uv">
-            <td>uv</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="lux">
-            <td>lux</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="temperature">
-            <td>temperature</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="pressure">
-            <td>pressure</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="humidity">
-            <td>humidity</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="pm1">
-            <td>pm1</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="pm2_5">
-            <td>pm2_5</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="pm10">
-            <td>pm10</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="wind speed">
-            <td>wind speed</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="rain">
-            <td>rain</td>
-            <td class="value">None</td>
-        </tr>
-        <tr data-key="wind direction">
-            <td>wind direction</td>
-            <td class="value">None</td>
-        </tr>
-    </table>
-
-    {% include 'partials/footer.html' %}
 </body>
 </html>

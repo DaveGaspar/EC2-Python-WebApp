@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -12,19 +17,32 @@
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('contact') }}">Contact</a>
     </nav>
-    <h1>Contact Us</h1>
-    <p>This is the contact page. Reach out to us here.</p>
+    
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>This is the contact page. Reach out to us here.</p>
 
-    <!-- Contact Information -->
-    <div class="contact-info">
-        <h2>Get in Touch</h2>
-        <p>You can contact me via email or check out my work on GitHub:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:dgasparyan073@gmail.com">dgasparyan073@gmail.com</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/DaveGaspar" target="_blank">github.com/DaveGaspar</a></li>
-        </ul>
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>You can contact me via email or check out my work on GitHub:</p>
+            <br>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:dgasparyan073@gmail.com">dgasparyan073@gmail.com</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/DaveGaspar" target="_blank">github.com/DaveGaspar</a></li>
+            </ul>
+        </div>
     </div>
 
-    {% include 'partials/footer.html' %}
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Davit Gasparyan. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:dgasparyan073@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/DaveGaspar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gasparyan-david/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
