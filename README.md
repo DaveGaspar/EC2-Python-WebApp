@@ -37,7 +37,7 @@ git clone https://github.com/DaveGaspar/EC2-Python-WebApp.git climatenet
 cd climatenet
 
 # Create virtual environment
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 
 # Install dependencies
