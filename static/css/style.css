@@ -21,6 +21,9 @@ body {
     color: var(--dark);
     background-color: var(--white);
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
     margin: 0;
 }
 
@@ -28,6 +31,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
+    flex: 1;
 }
 
 /* Navigation Bar */
@@ -349,7 +353,7 @@ form button:hover {
 footer {
     background-color: var(--primary-very-light);
     padding: 2rem 0;
-    margin-top: 3rem;
+    margin-top: auto; /* 3rem; */
     text-align: center;
 }
 
